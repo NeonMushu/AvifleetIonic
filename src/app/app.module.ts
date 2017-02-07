@@ -5,15 +5,18 @@ import { MyApp } from './app.component';
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
+import { VehiclesPage } from '../pages/vehicles/vehicles';
 
 import { GithubUsers } from '../providers/github-users';
+import { AvifleetVehicles } from '../providers/avifleet-vehicles';
 
 @NgModule({
     declarations: [
         MyApp,
         UsersPage,
         ReposPage,
-        OrganisationsPage
+        OrganisationsPage,
+        VehiclesPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -23,8 +26,12 @@ import { GithubUsers } from '../providers/github-users';
         MyApp,
         UsersPage,
         ReposPage,
-        OrganisationsPage
+        OrganisationsPage,
+        VehiclesPage
     ],
-    providers: [GithubUsers] // Add GithubUsers provider
+    providers: [
+        GithubUsers,
+        AvifleetVehicles
+    ]
 })
 export class AppModule { }
