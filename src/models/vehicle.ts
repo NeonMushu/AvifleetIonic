@@ -2,7 +2,7 @@
 // http://sandbox.avifleet.co.za/api/v1/vehicles
 export interface Vehicle {
     id: number;
-    avatar_url: "https://cdn3.iconfinder.com/data/icons/farmix-circular/128/farm_agriculture-07-512.png" ;
+    avatar_url: string;
     plate_number: string;
     fleet_id: number;
     fleet_number: number;
