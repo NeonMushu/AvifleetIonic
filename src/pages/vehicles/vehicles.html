@@ -8,15 +8,13 @@
         <button ion-button icon-only menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>
-            Vehicles
-        </ion-title>
+        <ion-title>Vehicles</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let vehicle of vehicles">
+        <button ion-item *ngFor="let vehicle of vehicles" (click)="goToDetails(vehicle.plate_number)">
             <ion-avatar item-left>
                 <img [src]="vehicle.avatar_url">
             </ion-avatar>

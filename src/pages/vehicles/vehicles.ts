@@ -5,6 +5,8 @@ import { Vehicle } from '../../models/vehicle';
 
 import { AvifleetVehicles } from '../../providers/avifleet-vehicles';
 
+import { VehicleDetailsPage } from '../vehicle-details/vehicle-details';
+
 @Component({
     selector: 'page-vehicles',
     templateUrl: 'vehicles.html'
@@ -16,5 +18,8 @@ export class VehiclesPage {
         avifleetVehicles.load().subscribe(vehicles => {
             this.vehicles = vehicles;
         })
+    }
+    goToDetails(plate_number: string) {
+        this.navCtrl.push(VehicleDetailsPage, { plate_number });
     }
 }

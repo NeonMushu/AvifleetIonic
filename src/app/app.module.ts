@@ -6,6 +6,8 @@ import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
 import { VehiclesPage } from '../pages/vehicles/vehicles';
+import { UserDetailsPage } from '../pages/user-details/user-details';
+import { VehicleDetailsPage } from '../pages/vehicle-details/vehicle-details';
 
 import { GithubUsers } from '../providers/github-users';
 import { AvifleetVehicles } from '../providers/avifleet-vehicles';
@@ -16,7 +18,9 @@ import { AvifleetVehicles } from '../providers/avifleet-vehicles';
         UsersPage,
         ReposPage,
         OrganisationsPage,
-        VehiclesPage
+        VehiclesPage,
+        UserDetailsPage,
+        VehicleDetailsPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -27,7 +31,9 @@ import { AvifleetVehicles } from '../providers/avifleet-vehicles';
         UsersPage,
         ReposPage,
         OrganisationsPage,
-        VehiclesPage
+        VehiclesPage,
+        UserDetailsPage,
+        VehicleDetailsPage
     ],
     providers: [
         GithubUsers,
