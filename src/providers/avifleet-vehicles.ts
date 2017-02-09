@@ -17,8 +17,8 @@ export class AvifleetVehicles {
             .map(res => <Vehicle[]>res.json());
     }
     // Get vechicle detrails by providing plate number
-    loadDetails(plate_number: string): Observable<Vehicle> {
-        return this.http.get(`${this.AvifleetUrl}/vehicles/${plate_number}`)
+    loadDetails(id: number): Observable<Vehicle> {
+        return this.http.get(`${this.AvifleetUrl}/vehicles/${id}`)
             .map(res => <Vehicle>(res.json()))
     }
 }

@@ -19,7 +19,7 @@ export class VehiclesPage {
             this.vehicles = vehicles;
         })
     }
-    goToDetails(plate_number: string) {
-        this.navCtrl.push(VehicleDetailsPage, { plate_number });
+    goToDetails(id: number) {
+        this.navCtrl.push(VehicleDetailsPage, { id });
     }
 }

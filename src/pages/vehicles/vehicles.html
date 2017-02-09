@@ -14,7 +14,7 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let vehicle of vehicles" (click)="goToDetails(vehicle.plate_number)">
+        <button ion-item *ngFor="let vehicle of vehicles" (click)="goToDetails(vehicle.id)">
             <ion-avatar item-left>
                 <img [src]="vehicle.avatar_url">
             </ion-avatar>
