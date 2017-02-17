@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Vehicle } from '../../models/vehicle';
 
 import { AvifleetVehicles } from '../../providers/avifleet-vehicles';
 
-import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, CameraPosition, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
+declare var google;
+
+
 
 /*
   Generated class for the VehicleDetails page.
@@ -17,8 +19,13 @@ import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, CameraPosition, GoogleMap
   templateUrl: 'vehicle-details.html'
 })
 export class VehicleDetailsPage {
+
+    @ViewChild('map') mapElement;
+    map: any;
+
     vehicle: Vehicle;
     id: number;
+    mapDebug: string;
 
     constructor(public navCtrl: NavController, private navParams: NavParams, private avifleetVehicles: AvifleetVehicles) {
         this.id = navParams.get('id');
@@ -27,48 +34,19 @@ export class VehicleDetailsPage {
         })
     }
     // Load map only after view is initialize
-    ngAfterViewInit() {
-        this.loadMap();
+    ionViewDidLoad() {
+        this.initMap();
     }
 
-    loadMap() {
-        // make sure to create following structure in your view.html file
-        // and add a height (for example 100%) to it, else the map won't be visible
-        // <ion-content>
-        //  <div #map id="map" style="height:100%;"></div>
-        // </ion-content>
+    initMap() {
+        let latLng = new google.maps.LatLng(-34.9290, 138.6010);
 
-        // create a new map by passing HTMLElement
-        let element: HTMLElement = document.getElementById('map');
-
-        let map = new GoogleMap(element);
-
-        // listen to MAP_READY event
-        map.one(GoogleMapsEvent.MAP_READY).then(() => console.log('Map is ready!'));
-
-        // create LatLng object
-        let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904, -89.3809802);
-
-        // create CameraPosition
-        let position: CameraPosition = {
-            target: ionic,
-            zoom: 18,
-            tilt: 30
+        let mapOptions = {
+            center: latLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        // move the map's camera to position
-        map.moveCamera(position);
-
-        // create new marker
-        let markerOptions: GoogleMapsMarkerOptions = {
-            position: ionic,
-            title: 'Ionic'
-        };
-
-        map.addMarker(markerOptions)
-            .then((marker: GoogleMapsMarker) => {
-                marker.showInfoWindow();
-            });
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     }
 }
-

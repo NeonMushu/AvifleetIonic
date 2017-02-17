@@ -16,9 +16,15 @@ export class AvifleetVehicles {
         return this.http.get(`${this.AvifleetUrl}/vehicles`)
             .map(res => <Vehicle[]>res.json());
     }
-    // Get vechicle detrails by providing plate number
+    // Get vechicle detrails by providing identification number
     loadDetails(id: number): Observable<Vehicle> {
         return this.http.get(`${this.AvifleetUrl}/vehicles/${id}`)
             .map(res => <Vehicle>(res.json()))
+    }
+
+    // Search for vehicles  
+    searchVehicles(searchParam: string): Observable<Vehicle[]> {
+        return this.http.get(`${this.AvifleetUrl}/vehicles?q[plate_number_cont]=${searchParam}`)
+            .map(res => <Vehicle[]>(res.json()))
     }
 }
