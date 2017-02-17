@@ -1,8 +1,23 @@
 page-vehicle-details {
   
-      #map {
-          height: 40%;
-          width: 100%;
+    #map {
+        height: 40%;
+        width: 100%;
       }
+
+    ion-col div {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        text-align: center;
+  }
+
+    .stopped {
+     color: red;   
+    }
+
+    ion-list {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+    }
 
 }

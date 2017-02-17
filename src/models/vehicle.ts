@@ -33,5 +33,9 @@ export interface Vehicle {
     latitude: number;
     longitude: number;
     relay_status: string;
+    speed: number;
+    curent_state: string;
+    plain_current_state: string;
+    current_state_since: number;
 
 }

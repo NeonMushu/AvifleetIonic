@@ -4,9 +4,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar } from 'ionic-native';
 
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganisationsPage } from '../pages/organisations/organisations';
 import { VehiclesPage } from '../pages/vehicles/vehicles'
 
 @Component({
@@ -24,9 +21,6 @@ export class MyApp {
 
         // set our app's pages
         this.pages = [
-            { title: 'Users', component: UsersPage },
-            { title: 'Repos', component: ReposPage },
-            { title: 'Organisations', component: OrganisationsPage },
             { title: 'Vehicles', component: VehiclesPage },
         ];
     }
