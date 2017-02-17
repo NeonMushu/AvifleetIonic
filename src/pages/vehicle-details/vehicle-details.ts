@@ -45,8 +45,15 @@ export class VehicleDetailsPage {
             center: latLng,
             zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+        }
+
+        let marker = new google.maps.Marker({
+            map: this.map,
+            animation: google.maps.Animation.DROP,
+            position: this.map.getCenter()
+        });
 
         this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     }
+
 }
