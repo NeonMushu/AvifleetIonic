@@ -4,10 +4,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar } from 'ionic-native';
 
-import { Http } from 'angular2/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-
-import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
@@ -20,7 +16,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
     // login page
-    rootPage: any = ProfilePage;
+    rootPage: any = VehiclesPage;
     pages: Array<{ title: string, component: any }>;
 
     constructor(public platform: Platform, public menu: MenuController) {
@@ -28,7 +24,6 @@ export class MyApp {
 
         // set our app's pages
         this.pages = [
-            { title: 'Profile', component: ProfilePage},
             { title: 'Users', component: UsersPage },
             { title: 'Repos', component: ReposPage },
             { title: 'Organisations', component: OrganisationsPage },
