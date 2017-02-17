@@ -13,12 +13,10 @@ import { VehicleDetailsPage } from '../vehicle-details/vehicle-details';
 })
 export class VehiclesPage {
     vehicles: Vehicle[]
-    originalVehicles: Vehicle[]
 
     constructor(public navCtrl: NavController, private avifleetVehicles: AvifleetVehicles) {
         avifleetVehicles.load().subscribe(vehicles => {
             this.vehicles = vehicles;
-            this.originalVehicles = vehicles;
         })
     }
     goToDetails(id: number) {
@@ -28,14 +26,8 @@ export class VehiclesPage {
     search(searchEvent) {
         let term = searchEvent.target.value
         // We will only perform the search if we have 3 or more characters
-        if (term.trim() === '' || term.trim().length < 3) {
-            // Load cached users
-            this.vehicles = this.originalVehicles;
-        } else {
-            // Get the searched users from github
-            this.avifleetVehicles.searchVehicles(term).subscribe(vehicles => {
-                this.vehicles = vehicles
-            });
-        }
+        this.avifleetVehicles.searchVehicles(term).subscribe(vehicles => {
+            this.vehicles = vehicles
+        });
     }
 }
