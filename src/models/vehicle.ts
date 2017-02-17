@@ -31,7 +31,7 @@ export interface Vehicle {
     contract_km: number;
     contract_months: number;
     latitude: number;
-    logitude: number;
+    longitude: number;
     relay_status: string;
 
 }

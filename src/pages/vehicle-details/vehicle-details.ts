@@ -28,18 +28,19 @@ export class VehicleDetailsPage {
     mapDebug: string;
 
     constructor(public navCtrl: NavController, private navParams: NavParams, private avifleetVehicles: AvifleetVehicles) {
-        this.id = navParams.get('id');
-        avifleetVehicles.loadDetails(this.id).subscribe(vehicle => {
-            this.vehicle = vehicle;
-        })
+
     }
     // Load map only after view is initialize
     ionViewDidLoad() {
-        this.initMap();
+        this.id = this.navParams.get('id');
+        this.avifleetVehicles.loadDetails(this.id).subscribe(vehicle => {
+            this.vehicle = vehicle;
+            this.initMap(vehicle.latitude, vehicle.longitude);
+        })
     }
 
-    initMap() {
-        let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+    initMap(latitude: number, longitude: number) {
+        let latLng = new google.maps.LatLng(latitude, longitude);
 
         let mapOptions = {
             center: latLng,
@@ -47,13 +48,13 @@ export class VehicleDetailsPage {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        let marker = new google.maps.Marker({
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+        new google.maps.Marker({
             map: this.map,
             animation: google.maps.Animation.DROP,
-            position: this.map.getCenter()
+            position: latLng
         });
-
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     }
 
 }
