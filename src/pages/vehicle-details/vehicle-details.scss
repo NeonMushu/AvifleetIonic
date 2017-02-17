@@ -9,15 +9,32 @@ page-vehicle-details {
         border: 1px solid #ddd;
         border-radius: 2px;
         text-align: center;
-  }
-
-    .stopped {
-     color: red;   
     }
 
-    ion-list {
+   ion-list {
         border: 1px solid #ddd;
         border-radius: 2px;
+    }
+
+//Vehicle Status Colours
+    .driving {
+        font-weight:700;
+        color: #356e35;
+    }
+
+    .stopped {
+        font-weight:700;
+        color: #4c4f53; 
+    }
+    
+    .idling {
+        font-weight:700;
+        color: #6e3671;
+    }
+
+    .tow_away {
+        font-weight:700;
+        color: #c7254e;
     }
 
 }
