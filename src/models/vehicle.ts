@@ -30,5 +30,8 @@ export interface Vehicle {
     contract_start_on: number;
     contract_km: number;
     contract_months: number;
+    latitude: number;
+    logitude: number;
+    relay_status: string;
 
 }

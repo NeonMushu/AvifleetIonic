@@ -14,6 +14,10 @@
     <div #map id="map"></div>
     <ion-list>
         <ion-item>
+            <ion-label>Relay</ion-label>
+            <ion-badge item-right>{{vehicle?.relay_status}}</ion-badge>
+        </ion-item>
+        <ion-item>
             <ion-label>Make</ion-label>
             <ion-badge item-right>{{vehicle?.make}}</ion-badge>
         </ion-item>
